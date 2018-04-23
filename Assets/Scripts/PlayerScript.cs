@@ -40,10 +40,11 @@ public class PlayerScript : MonoBehaviour {
 
 	}
 
-	void onTriggerEnter (Collider newCollision)
+	void OnTriggerEnter (Collider newCollider)
 	{
-		if (newCollision.gameObject.tag == "coin")
+		if (newCollider.gameObject.tag == "Coin")
 		{
+			Debug.Log("You went through a coin");
 			playerXP_Cur += 5;
 		}
 	}

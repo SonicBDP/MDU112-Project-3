@@ -14,8 +14,12 @@ public class CoinScript : MonoBehaviour {
 		
 	}
 
-	void onTriggerEnter ()
+	void OnTriggerEnter (Collider newCollider)
 	{
-		Destroy(this.gameObject);
+		if (newCollider.name == "Player")
+		{
+			Debug.Log("This object is getting destroyed");
+			Destroy(this.gameObject);
+		}
 	}
 }
