@@ -24,6 +24,7 @@ public class PlayerScript : MonoBehaviour {
 	public int playerHP_Max = 100;
 	public int playerHP_Cur = 100;
 	public int playerSTR = 5;
+	public bool playerBUFF = false;
 
 	void Start () {
 		rb = GetComponent<Rigidbody>();
@@ -53,7 +54,7 @@ public class PlayerScript : MonoBehaviour {
 		LevelUp();
 
 		//UI
-		StatManager.Instance.ShowStats(playerLVL, playerHP_Cur, playerHP_Max, playerSTR);
+		StatManager.Instance.ShowStats(playerLVL, playerHP_Cur, playerHP_Max, playerSTR, playerBUFF);
 
 	}
 
@@ -64,6 +65,11 @@ public class PlayerScript : MonoBehaviour {
 			Debug.Log("You went through a coin");
 			playerXP_Cur += playerXP_Gain;
 		}
+
+		if (newCollider.gameObject.name == "Aura")
+		{
+			playerBUFF = true;
+		}
 	}
 
 	void LevelUp()
@@ -73,6 +79,8 @@ public class PlayerScript : MonoBehaviour {
 			playerLVL += 1;
 			playerXP_Gain = (playerLVL * 5) + (playerXP_Req / 20);
 			playerXP_Req = playerLVL * (playerLVL+2) * 7;
+			playerHP_Max += 20;
+			playerSTR += 5;
 		}
 
 	}

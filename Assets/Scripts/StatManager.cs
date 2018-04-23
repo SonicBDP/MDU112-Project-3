@@ -20,9 +20,8 @@ public class StatManager : MonoBehaviour {
 
 
 
-	public void ShowStats(int lvl, int hp_cur, int hp_max, int str)
+	public void ShowStats(int lvl, int hp_cur, int hp_max, int str, bool buff)
 	{
-		Debug.Log("Print stats");
-		stats.text = "Lvl: " + lvl.ToString() + " HP: " + hp_cur.ToString() + "/" + hp_max.ToString() + " Strength: " + str.ToString();
+		stats.text = "Lvl: " + lvl.ToString() + " HP: " + hp_cur.ToString() + "/" + hp_max.ToString() + " Strength: " + str.ToString() + " Buffed? " + buff.ToString();
 	}
 }
