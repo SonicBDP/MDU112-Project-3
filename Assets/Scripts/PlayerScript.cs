@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
+	public static PlayerScript Instance;
+	void Awake () {
+		Instance = this;
+	}
 
 	//General variables
-	public static PlayerScript Instance;
+
 	Rigidbody rb;
 
-
 	//Levelling system variables
-	public int playerXP_Cur;
-	public int playerXP_Col;
-	public int playerXP_Req;
-	public int playerLVL;
+	public int playerXP_Cur = 0;
+	public int playerXP_Gain = 5;
+	public int playerXP_Req = 10;
+	public int playerLVL = 1;
 
 	//Stat variables
+
 	public int playerHP_Max = 100;
 	public int playerHP_Cur = 100;
 	public int playerSTR = 5;
@@ -26,9 +30,7 @@ public class PlayerScript : MonoBehaviour {
 		playerXP_Cur = 0;
 	}
 
-	void Awake () {
-		Instance = this;
-	}
+
 		
 	void Update () {
 
@@ -37,19 +39,21 @@ public class PlayerScript : MonoBehaviour {
 		if (Input.GetKey(KeyCode.A)) 
 		{
 			rb.AddForce (Vector3.left * 20);
-			Debug.Log ("Moving Left");
 		}
 		if (Input.GetKey(KeyCode.D))
 		{
 			rb.AddForce (Vector3.right * 75);
-			Debug.Log ("Moving Right");
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) 
 		{
 			rb.velocity = Vector3.up * 7;
-			Debug.Log ("Jump");
 		}
 
+		//Levelling system
+		LevelUp();
+
+		//UI
+		StatManager.Instance.ShowStats(playerLVL, playerHP_Cur, playerHP_Max, playerSTR);
 
 	}
 
@@ -58,8 +62,19 @@ public class PlayerScript : MonoBehaviour {
 		if (newCollider.gameObject.tag == "Coin")
 		{
 			Debug.Log("You went through a coin");
-			playerXP_Cur += 5;
+			playerXP_Cur += playerXP_Gain;
 		}
+	}
+
+	void LevelUp()
+	{
+		if (playerXP_Cur >= playerXP_Req)
+		{
+			playerLVL += 1;
+			playerXP_Gain = (playerLVL * 5) + (playerXP_Req / 20);
+			playerXP_Req = playerLVL * (playerLVL+2) * 7;
+		}
+
 	}
 
 	public void DamagePlayer (int dmg) 

@@ -1,11 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\Unity Projects\Unity_Week9_Scott\Assets\Scripts\Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\StatManager.cs">
     <Files>
-      <File FileName="..\..\Unity Projects\Unity_Week9_Scott\Assets\Scripts\Player.cs" Line="1" Column="1" />
-      <File FileName="..\..\Unity Projects\Unity_Week9_Scott\Assets\Scripts\Fruit.cs" Line="42" Column="29" />
-      <File FileName="Assets\Scripts\PlayerScript.cs" Line="43" Column="31" />
-      <File FileName="Assets\Scripts\CoinScript.cs" Line="19" Column="28" />
+      <File FileName="Assets\Scripts\PlayerScript.cs" Line="56" Column="24" />
+      <File FileName="Assets\Scripts\CoinScript.cs" Line="20" Column="4" />
+      <File FileName="Assets\Scripts\Fireball.cs" Line="34" Column="47" />
+      <File FileName="Assets\Scripts\StatManager.cs" Line="19" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

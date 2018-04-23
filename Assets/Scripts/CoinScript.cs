@@ -18,7 +18,6 @@ public class CoinScript : MonoBehaviour {
 	{
 		if (newCollider.name == "Player")
 		{
-			Debug.Log("This object is getting destroyed");
 			Destroy(this.gameObject);
 		}
 	}
