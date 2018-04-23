@@ -13,6 +13,13 @@ public class StatManager : MonoBehaviour {
 
 	public Text stats;
 
+	void Start()
+	{
+		stats = GetComponent<Text>();
+	}
+
+
+
 	public void ShowStats(int lvl, int hp_cur, int hp_max, int str)
 	{
 		Debug.Log("Print stats");
