@@ -6,7 +6,9 @@ public class PlayerScript : MonoBehaviour {
 
 
 	//General variables
+	public static PlayerScript Instance;
 	Rigidbody rb;
+
 
 	//Levelling system variables
 	public int playerXP_Cur;
@@ -22,6 +24,10 @@ public class PlayerScript : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 		playerXP_Cur = 0;
+	}
+
+	void Awake () {
+		Instance = this;
 	}
 		
 	void Update () {
@@ -58,7 +64,8 @@ public class PlayerScript : MonoBehaviour {
 
 	public void DamagePlayer (int dmg) 
 	{
-
+		playerHP_Cur = playerHP_Cur - dmg;
+		Debug.Log("Player has taken " + dmg + " damage and is now on " + playerHP_Cur + " HP");
 	}
 
 		
