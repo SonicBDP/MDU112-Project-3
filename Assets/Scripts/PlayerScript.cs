@@ -5,12 +5,19 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
 
-	//Variables
+	//General variables
 	Rigidbody rb;
+
+	//Levelling system variables
 	public int playerXP_Cur;
 	public int playerXP_Col;
 	public int playerXP_Req;
 	public int playerLVL;
+
+	//Stat variables
+	public int playerHP_Max = 100;
+	public int playerHP_Cur = 100;
+	public int playerSTR = 5;
 
 	void Start () {
 		rb = GetComponent<Rigidbody>();
@@ -47,6 +54,11 @@ public class PlayerScript : MonoBehaviour {
 			Debug.Log("You went through a coin");
 			playerXP_Cur += 5;
 		}
+	}
+
+	public void DamagePlayer (int dmg) 
+	{
+
 	}
 
 		
