@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
-	Rigidbody rb;
 
-	// Use this for initialization
+	//Variables
+	Rigidbody rb;
+	public int playerXP_Cur;
+	public int playerXP_Col;
+	public int playerXP_Req;
+	public int playerLVL;
+
 	void Start () {
 		rb = GetComponent<Rigidbody>();
+		playerXP_Cur = 0;
 	}
-
-	// Update is called once per frame
+		
 	void Update () {
+
+
+		//Controls
 		if (Input.GetKey(KeyCode.A)) 
 		{
 			rb.AddForce (Vector3.left * 20);
@@ -28,5 +36,17 @@ public class PlayerScript : MonoBehaviour {
 			rb.velocity = Vector3.up * 7;
 			Debug.Log ("Jump");
 		}
+
+
 	}
+
+	void onTriggerEnter (Collider newCollision)
+	{
+		if (newCollision.gameObject.tag == "coin")
+		{
+			playerXP_Cur += 5;
+		}
+	}
+
+		
 }
